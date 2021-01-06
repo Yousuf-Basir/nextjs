@@ -38,7 +38,7 @@ Fetcher.getInitialProps = async (ctx) => {
       })
   
     const writer = Fs.createWriteStream(
-      Path.resolve("public/Files/movie.mp4")
+      Path.resolve("public/Files/movie.jpg")
     )
   
     data.on('data', (chunk) => progressBar.tick(chunk.length))
