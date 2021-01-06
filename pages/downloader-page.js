@@ -42,7 +42,15 @@ function DownloaderPage({result}) {
                 console.log(res);
             }).catch(err=>console.log(err));
     }
+    
+    // function getProgress(){
+    //     fs.readFile('my-file.txt', 'utf8', function(err, data) {
+    //         if (err) throw err;
+    //         console.log(data);
+    //     });
+    // }
 
+    
     // DownloaderPage.getInitialProps = async(ctx) => {
     //     return fetchData()
     //     .then(()=>{

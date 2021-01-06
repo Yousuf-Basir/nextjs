@@ -15,7 +15,7 @@ export default function Home() {
       <Row className="heroRow">
         <Col className="heroImageCol">
           <img className="heroImage" src="Assets/hero-image.jpg" /> 
-          <img className="heroImage" src="Files/movie.jpg" /> 
+          {/* <img className="heroImage" src="Files/movie.jpg" />  */}
         </Col>
 
         <Col className="heroTextCol">

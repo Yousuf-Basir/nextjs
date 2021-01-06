@@ -20,15 +20,14 @@ Fetcher.getInitialProps = async (ctx) => {
   async function downloadImage (_url) {  
     const url = _url
   
-    console.log('Connecting …')
+    console.log('Connecting …');
+    logger("started");
     const { data, headers } = await Axios({
       url,
       method: 'GET',
       responseType: 'stream'
     })
     const totalLength = headers['content-length']
-  
-    console.log('Starting download')
     const progressBar = new ProgressBar('-> downloading [:bar] :percent :etas', {
         width: 40,
         complete: '=',
@@ -38,11 +37,29 @@ Fetcher.getInitialProps = async (ctx) => {
       })
   
     const writer = Fs.createWriteStream(
-      Path.resolve("public/Files/movie.jpg")
+      Path.resolve("public/Files/movie.mp4")
     )
   
-    data.on('data', (chunk) => progressBar.tick(chunk.length))
+    data.on('data', (chunk) => {
+        let chunkSize = parseInt(chunk.length);
+        logger(bytesToSize(chunkSize))
+    })
     data.pipe(writer)
   }
 
+
+
+  const logger = (text)=>{
+    Fs.writeFile('public/Files/logtext.txt', text, function (err) {
+        if (err) return console.log(err);
+      });
+  }
+
+
+  function bytesToSize(bytes) {
+    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes == 0) return '0 Byte';
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+ }
 export default Fetcher
