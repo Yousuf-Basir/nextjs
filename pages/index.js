@@ -14,7 +14,7 @@ export default function Home() {
       <Container>
       <Row className="heroRow">
         <Col className="heroImageCol">
-          <img className="heroImage" src={require('../Assets/hero-image.jpg')} /> 
+          <img className="heroImage" src="Assets/hero-image.jpg" /> 
         </Col>
 
         <Col className="heroTextCol">
