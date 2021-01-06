@@ -14,7 +14,7 @@ const Fetcher = () => {
 Fetcher.getInitialProps = async (ctx) => {
     console.log(ctx.query.url)
     downloadImage(ctx.query.url);
-    return { stars: "⭐" }
+    return { stars: "start dataaaaa" }
   }
 
   async function downloadImage (_url) {  
