@@ -1,0 +1,16 @@
+.heroContainer{
+    display: flex;
+}
+
+.heroContainer > div{
+    width: 50vw;
+}
+
+.heroLeft{
+    background-color: aquamarine;
+    flex-grow: 4;
+}
+.heroRight{
+    border: aquamarine 2px solid;
+    flex-grow: 4;
+}
